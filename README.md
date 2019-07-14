@@ -14,3 +14,6 @@ React Native Challenge for the Vemos position.
 2. Run `cd react-native-challenge`
 2. Run `yarn install` to install the node modules into your directory
 3. Run `react-native run-ios` to build the iOS app, which will then open
+
+### Project Specs: 
+Checkout the specs for the project here: <a href="https://github.com/bookbottles/react-native-challenge">react-native-challenge</a>
