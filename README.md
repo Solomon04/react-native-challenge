@@ -10,6 +10,8 @@ React Native Challenge for the Vemos position.
 - You must have the React Native CLI Installed: <a href="https://www.npmjs.com/package/react-native">React Native</a>
 - You must have a Mac Environment with Xcode downloaded. 
 
+If you have NPM installed you can just run `npm install -g react-native-cli` to install the React Native CLI
+
 ### Steps To Run on iOS: 
 1. Run `git clone https://github.com/Solomon04/react-native-challenge.git` to download the repo
 2. Run `cd react-native-challenge`
