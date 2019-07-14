@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import * as axios from 'react-native-axios';
 import Post from "./components/Post";
 
@@ -15,31 +15,24 @@ export default class App extends React.Component{
 
   constructor(props) {
       super(props);
-      this.state = {post: {}, url: "https://api.reddit.com/r/pics/hot.json"};
-      //this.formatDate = this.formatDate.bind(this);
+      this.state = {
+          url: "https://api.reddit.com/r/pics/hot.json", 
+          posts: []
+        };
   }
 
   componentDidMount(){
       axios.get(this.state.url, {
           params: {
               sort: "new",
-              limit: 2
+              limit: 5
           }
       }).then(res => {
           let children = res.data.data.children;
-          for (let item of children){
-              if(item.data.thumbnail !== "self"){
-                  // this.state.post = item.data;
-                  //console.warn(item.data.thumbnail);
-                  this.setState({ post: item.data });
-                  break;
-              }
-          }
-          //console.log(this.state.post);
+          this.setState({posts: children}); 
       }).catch(err => {
           console.log(err.message);
       });
-      //console.warn(this.state.post);
   }
 
   formatDate(value){
@@ -50,20 +43,39 @@ export default class App extends React.Component{
       }
   }
 
+    showPosts(){
+        return this.state.posts.map((item) => {
+            let img = null; 
+            //Checks to see if post has a thumbnail
+            if(item.data.thumbnail === "self"){
+                img = "https://via.placeholder.com/200x100";
+            }else{
+                img = item.data.thumbnail;
+            }
+            return (
+                <Post
+                    key={item.data.id}
+                    body={item.data.body}
+                    thumbnail={img}
+                    height={item.data.thumbnail_height}
+                    width={item.data.thumbnail_width}
+                    title={item.data.title}
+                    date={this.formatDate(item.data.created)}
+                    author={item.data.author}
+                    score={item.data.score}
+                    comments={item.data.num_comments}
+                    url={"https://www.reddit.com" + item.data.permalink}
+                />
+            );
+        }); 
+    }
+
   render(){
       return (
-          <Post
-              body={this.state.post.body}
-              thumbnail={this.state.post.thumbnail}
-              height={this.state.post.thumbnail_height}
-              width={this.state.post.thumbnail_width}
-              title={this.state.post.title}
-              date={this.formatDate(this.state.post.created)}
-              author={this.state.post.author}
-              score={this.state.post.score}
-              comments={this.state.post.num_comments}
-              url={"https://www.reddit.com" + this.state.post.permalink}
-          />
+          <ScrollView>
+              {this.showPosts()}
+          </ScrollView>
+          
       );
   }
 }

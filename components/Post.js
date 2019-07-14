@@ -3,12 +3,6 @@ import {View, Text, Image, StyleSheet, Linking, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Post extends React.Component {
-
-    // goToURL(url){
-    //     Linking.openURL(url).catch(err => console.error('An error occurred', err));
-    // }
-
-    //static propTypes = { url: React.PropTypes.string };
     handleClick = () => {
         Linking.canOpenURL(this.props.url).then(supported => {
             if (supported) {
@@ -55,6 +49,13 @@ export default class Post extends React.Component {
                             style={{padding: 20}}
                         />
                 </View>
+                <View
+                    style={{
+                        borderBottomColor: 'black',
+                        borderBottomWidth: 1,
+                        width: '100%'
+                    }}
+                />
             </View>
         );
     }
