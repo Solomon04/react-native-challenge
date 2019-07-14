@@ -1,12 +1,16 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, Linking, Button} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { WebView } from 'react-native-webview';
 
 export default class Post extends React.Component {
     handleClick = () => {
         Linking.canOpenURL(this.props.url).then(supported => {
             if (supported) {
                 Linking.openURL(this.props.url);
+                return (
+                    <WebView source={{ uri: this.props.url}} />
+                ); 
             } else {
                 console.log("Don't know how to open URI: " + this.props.url);
             }

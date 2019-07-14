@@ -72,7 +72,7 @@ export default class App extends React.Component{
 
   render(){
       return (
-          <ScrollView>
+          <ScrollView style={{marginTop: 25}}>
               {this.showPosts()}
           </ScrollView>
           
