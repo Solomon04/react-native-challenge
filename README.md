@@ -25,3 +25,11 @@ Checkout the specs for the project here: <a href="https://github.com/bookbottles
 ![layout](https://user-images.githubusercontent.com/35110194/61183721-48a27180-a60a-11e9-9072-9113e97a9a38.JPG)
 
 The layout uses a scrollable view for up to 5 Reddit posts, where you can click a button at the bottom to open the Reddit post within a webview.
+
+### Troubleshooting
+If you are getting an error with the `react-native run-ios` command please follow these steps: 
+1. Download the iOS zip file here: <a href="https://drive.google.com/open?id=1UJuOJeFtVLPuUKWA55gdcWHPJZoMBeMm">Here<a/> (very large file)
+2. Extract the iOS zip file
+3. Move the new iOS directory into the *react-native-challenge* directory which will replace the old one. 
+4. Select the **AwesomeProject.xcworkspace**, which will promptly open Xcode
+5. Click build in the top left corner of Xcode, which will then open the app on an iPhone simulator. 
