@@ -31,5 +31,6 @@ If you are getting an error with the `react-native run-ios` command please follo
 1. Download the iOS zip file here: <a href="https://drive.google.com/open?id=1UJuOJeFtVLPuUKWA55gdcWHPJZoMBeMm">Here<a/> (very large file)
 2. Extract the iOS zip file
 3. Move the new iOS directory into the *react-native-challenge* directory which will replace the old one. 
-4. Select the **AwesomeProject.xcworkspace**, which will promptly open Xcode
-5. Click build in the top left corner of Xcode, which will then open the app on an iPhone simulator. 
+4. Then cd into the iOS directory
+5. Select the **AwesomeProject.xcworkspace**, which will promptly open Xcode
+6. Click build in the top left corner of Xcode, which will then open the app on an iPhone simulator. 
